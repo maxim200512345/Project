@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    tools:context=".SelectTypeOfGame">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="723dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="328dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/header" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="479dp"
+        android:layout_height="228dp"
+        android:layout_marginEnd="376dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42"
+        app:srcCompat="@drawable/item" />
+
+    <ImageButton
+        android:id="@+id/classicButton"
+        android:layout_width="224dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.007"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/buttonstart" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="224dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton7"
+        app:layout_constraintStart_toEndOf="@+id/classicButton"
+        app:srcCompat="@drawable/buttonstart" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="224dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.968"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/buttonstart" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="479dp"
+        android:layout_height="228dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/truefalse" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="479dp"
+        android:layout_height="228dp"
+        android:layout_marginStart="356dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.244"
+        app:srcCompat="@drawable/singer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

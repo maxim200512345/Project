@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Guess the Song</string>
+    <string-array name="chooser">
+        <item>Классический режим</item>
+        <item>да или нет</item>
+        <item>кто автор</item>
+
+
+    </string-array>
+    <string-array name="probe">
+        <item size="10sp">рок</item>
+        <item size="10sp">шансон</item>
+        <item size="10sp">поп</item>
+        <item size="10sp">альтернатива</item>
+    </string-array>
+    <string name="smlts">Nirvana-Smells like teen spirit</string>
+    <string name="idb">Imagine dragons-believer</string>
+    <string name="mjsc">Michael Jackson-smooth criminal</string>
+    <string name="cgp">coulio-gangstas paradise</string>
+    <string name="start">начать</string>
+    <string name="stats">статистика</string>
+</resources>
