@@ -49,87 +49,75 @@ public class WhoIsSingerGame extends AppCompatActivity {
 
         newQuestion(turn);
 
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (btnText1.getText().toString().equalsIgnoreCase(list.get(turn-1).getAuthor())){
-                    Toast.makeText(WhoIsSingerGame.this, "correct", Toast.LENGTH_SHORT).show();
-                    if(turn < limit){
-                        clickCorrectSettings();
+        btn1.setOnClickListener(v -> {
+            if (btnText1.getText().toString().equalsIgnoreCase(list.get(turn-1).getAuthor())){
+                Toast.makeText(WhoIsSingerGame.this, "correct", Toast.LENGTH_SHORT).show();
+                if(turn < limit){
+                    clickCorrectSettings();
 
-                    }
-                    else{
-                        mPlayer.stop();
-                        showDialog(WhoIsSingerGame.this);
-                        Toast.makeText(WhoIsSingerGame.this, "finish", Toast.LENGTH_SHORT).show();
-
-                    }
                 }
                 else{
-                    clickFalseSettings();
+                    mPlayer.stop();
+                    showDialog(WhoIsSingerGame.this);
+                    Toast.makeText(WhoIsSingerGame.this, "finish", Toast.LENGTH_SHORT).show();
 
                 }
             }
-        });
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (btnText2.getText().toString().equalsIgnoreCase(list.get(turn-1).getAuthor())){
-                    Toast.makeText(WhoIsSingerGame.this, "correct", Toast.LENGTH_SHORT).show();
-                    if(turn < limit){
-                        clickCorrectSettings();
-                    }
-                    else{
-                        mPlayer.stop();
-                        showDialog(WhoIsSingerGame.this);
-                        Toast.makeText(WhoIsSingerGame.this, "finish", Toast.LENGTH_SHORT).show();
+            else{
+                clickFalseSettings();
 
-                    }
-                }
-                else{
-                    clickFalseSettings();
-                }
             }
         });
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (btnText3.getText().toString().equalsIgnoreCase(list.get(turn-1).getAuthor())){
-                    Toast.makeText(WhoIsSingerGame.this, "correct", Toast.LENGTH_SHORT).show();
-                    if(turn < limit){
-                        clickCorrectSettings();
-                    }
-                    else{
-                        mPlayer.stop();
-                        showDialog(WhoIsSingerGame.this);
-                        Toast.makeText(WhoIsSingerGame.this, "finish", Toast.LENGTH_SHORT).show();
-
-                    }
+        btn2.setOnClickListener(v -> {
+            if (btnText2.getText().toString().equalsIgnoreCase(list.get(turn-1).getAuthor())){
+                Toast.makeText(WhoIsSingerGame.this, "correct", Toast.LENGTH_SHORT).show();
+                if(turn < limit){
+                    clickCorrectSettings();
                 }
                 else{
-                    clickFalseSettings();
+                    mPlayer.stop();
+                    showDialog(WhoIsSingerGame.this);
+                    Toast.makeText(WhoIsSingerGame.this, "finish", Toast.LENGTH_SHORT).show();
+
                 }
             }
+            else{
+                clickFalseSettings();
+            }
         });
-        btn4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (btnText4.getText().toString().equalsIgnoreCase(list.get(turn-1).getAuthor())){
-                    Toast.makeText(WhoIsSingerGame.this, "correct", Toast.LENGTH_SHORT).show();
-                    if(turn < limit){
-                        clickCorrectSettings();
-                    }
-                    else{
-                        mPlayer.stop();
-                        showDialog(WhoIsSingerGame.this);
-                        Toast.makeText(WhoIsSingerGame.this, "finish", Toast.LENGTH_SHORT).show();
-
-                    }
+        btn3.setOnClickListener(v -> {
+            if (btnText3.getText().toString().equalsIgnoreCase(list.get(turn-1).getAuthor())){
+                Toast.makeText(WhoIsSingerGame.this, "correct", Toast.LENGTH_SHORT).show();
+                if(turn < limit){
+                    clickCorrectSettings();
                 }
                 else{
-                    clickFalseSettings();
+                    mPlayer.stop();
+                    showDialog(WhoIsSingerGame.this);
+                    Toast.makeText(WhoIsSingerGame.this, "finish", Toast.LENGTH_SHORT).show();
 
                 }
+            }
+            else{
+                clickFalseSettings();
+            }
+        });
+        btn4.setOnClickListener(v -> {
+            if (btnText4.getText().toString().equalsIgnoreCase(list.get(turn-1).getAuthor())){
+                Toast.makeText(WhoIsSingerGame.this, "correct", Toast.LENGTH_SHORT).show();
+                if(turn < limit){
+                    clickCorrectSettings();
+                }
+                else{
+                    mPlayer.stop();
+                    showDialog(WhoIsSingerGame.this);
+                    Toast.makeText(WhoIsSingerGame.this, "finish", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+            else{
+                clickFalseSettings();
+
             }
         });
 
@@ -173,12 +161,9 @@ public class WhoIsSingerGame extends AppCompatActivity {
         counter.setText("ваш результат - " + Integer.toString(count));
         startTimer();
         mPlayer= MediaPlayer.create(this, reference);
-        mPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                mPlayer.setLooping(true);
-                mPlayer.start();
-            }
+        mPlayer.setOnPreparedListener(mp -> {
+            mPlayer.setLooping(true);
+            mPlayer.start();
         });
 
         int correct_author = r.nextInt(4) + 1;
@@ -266,13 +251,11 @@ public class WhoIsSingerGame extends AppCompatActivity {
         builder.setTitle("игра окончена")
                 .setMessage("отличный результат")
                 .setIcon(R.mipmap.ic_launcher)
-                .setPositiveButton("ОК", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // Закрываем окно
-                        dialog.dismiss();
-                        finish();
+                .setPositiveButton("ОК", (dialog, id) -> {
+                    // Закрываем окно
+                    dialog.dismiss();
+                    finish();
 
-                    }
                 });
         builder.show();
 

@@ -74,82 +74,70 @@ public class classic_game extends AppCompatActivity {
 
         newQuestion(turn);
 
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (btnText1.getText().toString().equalsIgnoreCase(list.get(turn-1).getName())){ // check if name of song equals it database element
-                    Toast.makeText(classic_game.this, "correct", Toast.LENGTH_SHORT).show();
-                    if(turn < round){
-                        clickCorrectSettings();
-                    }
-                    else{
-                        clickFinishSettings();
-
-                    }
+        btn1.setOnClickListener(v -> {
+            if (btnText1.getText().toString().equalsIgnoreCase(list.get(turn-1).getName())){ // check if name of song equals it database element
+                Toast.makeText(classic_game.this, "correct", Toast.LENGTH_SHORT).show();
+                if(turn < round){
+                    clickCorrectSettings();
                 }
                 else{
-                    clickFalseSettings();
+                    clickFinishSettings();
 
                 }
             }
-        });
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (btnText2.getText().toString().equalsIgnoreCase(list.get(turn-1).getName())){
-                    Toast.makeText(classic_game.this, "correct", Toast.LENGTH_SHORT).show();
-                    if(turn < round){
-                        clickCorrectSettings();
+            else{
+                clickFalseSettings();
 
-                    }
-                    else{
-                        clickFinishSettings();
-
-                    }
-                }
-                else{
-                    clickFalseSettings();
-                }
             }
         });
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (btnText3.getText().toString().equalsIgnoreCase(list.get(turn-1).getName())){
-                    Toast.makeText(classic_game.this, "correct", Toast.LENGTH_SHORT).show();
-                    if(turn < round){
-                        clickCorrectSettings();
+        btn2.setOnClickListener(v -> {
+            if (btnText2.getText().toString().equalsIgnoreCase(list.get(turn-1).getName())){
+                Toast.makeText(classic_game.this, "correct", Toast.LENGTH_SHORT).show();
+                if(turn < round){
+                    clickCorrectSettings();
 
-                    }
-                    else{
-                        clickFinishSettings();
-
-                    }
                 }
                 else{
-                    clickFalseSettings();
+                    clickFinishSettings();
+
                 }
             }
+            else{
+                clickFalseSettings();
+            }
         });
-        btn4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (btnText4.getText().toString().equalsIgnoreCase(list.get(turn-1).getName())){
-                    Toast.makeText(classic_game.this, "correct", Toast.LENGTH_SHORT).show();
-                    if(turn < round){
-                        clickCorrectSettings();
+        btn3.setOnClickListener(v -> {
+            if (btnText3.getText().toString().equalsIgnoreCase(list.get(turn-1).getName())){
+                Toast.makeText(classic_game.this, "correct", Toast.LENGTH_SHORT).show();
+                if(turn < round){
+                    clickCorrectSettings();
 
-                    }
-                    else{
-                        clickFinishSettings();
-
-
-                    }
                 }
                 else{
-                    clickFalseSettings();
+                    clickFinishSettings();
 
                 }
+            }
+            else{
+                clickFalseSettings();
+            }
+        });
+        btn4.setOnClickListener(v -> {
+            if (btnText4.getText().toString().equalsIgnoreCase(list.get(turn-1).getName())){
+                Toast.makeText(classic_game.this, "correct", Toast.LENGTH_SHORT).show();
+                if(turn < round){
+                    clickCorrectSettings();
+
+                }
+                else{
+                    clickFinishSettings();
+
+
+                }
+            }
+            else{
+                clickFalseSettings();
+
             }
         });
 
@@ -214,13 +202,10 @@ public class classic_game extends AppCompatActivity {
         rd.setText(text);
         //make music player
         mPlayer= MediaPlayer.create(this, reference);
-        mPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                //start music
-                mPlayer.setLooping(true);
-                mPlayer.start();
-            }
+        mPlayer.setOnPreparedListener(mp -> {
+            //start music
+            mPlayer.setLooping(true);
+            mPlayer.start();
         });
         //inserting answers to button
         int correct_song = r.nextInt(4) + 1;
@@ -314,13 +299,11 @@ public class classic_game extends AppCompatActivity {
         builder.setTitle("игра окончена")
                 .setMessage("отличный результат")
                 .setIcon(R.mipmap.ic_launcher)
-                .setPositiveButton("ОК", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // Закрываем окно
-                        dialog.dismiss();
-                        finish();
+                .setPositiveButton("ОК", (dialog, id) -> {
+                    // Закрываем окно
+                    dialog.dismiss();
+                    finish();
 
-                    }
                 });
         builder.show();
 
@@ -331,13 +314,11 @@ public class classic_game extends AppCompatActivity {
                 .setMessage("это была песня ......" +
                         "продолжаем?")
                 .setIcon(R.mipmap.ic_launcher)
-                .setPositiveButton("да", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // Закрываем окно
-                        dialog.dismiss();
-                        finish();
+                .setPositiveButton("да", (dialog, id) -> {
+                    // Закрываем окно
+                    dialog.dismiss();
+                    finish();
 
-                    }
                 });
         builder.show();
     }
@@ -347,13 +328,11 @@ public class classic_game extends AppCompatActivity {
                 .setMessage("это была песня ......" +
                         "продолжаем?")
                 .setIcon(R.mipmap.ic_launcher)
-                .setPositiveButton("да", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // Закрываем окно
-                        dialog.dismiss();
-                        finish();
+                .setPositiveButton("да", (dialog, id) -> {
+                    // Закрываем окно
+                    dialog.dismiss();
+                    finish();
 
-                    }
                 });
         builder.show();
     }

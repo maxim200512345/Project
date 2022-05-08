@@ -29,26 +29,19 @@ public class MainActivity extends AppCompatActivity {
         scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(this, R.anim.scale_down);
 
-        btnStart.setOnTouchListener(new View.OnTouchListener() {
-            @SuppressLint("ClickableViewAccessibility")
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN){
-                    btnStart.startAnimation(scaleUp);
-                    Intent intent = new Intent(MainActivity.this , SelectTypeOfGame.class);
-                    startActivity(intent);
-                }else if(event.getAction() == MotionEvent.ACTION_UP){
-                    btnStart.startAnimation(scaleDown);
-                }
-                return true;
-            }
-        });
-        btnStats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Statistics.class);
+        btnStart.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN){
+                btnStart.startAnimation(scaleUp);
+                Intent intent = new Intent(MainActivity.this , SelectTypeOfGame.class);
                 startActivity(intent);
+            }else if(event.getAction() == MotionEvent.ACTION_UP){
+                btnStart.startAnimation(scaleDown);
             }
+            return true;
+        });
+        btnStats.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Statistics.class);
+            startActivity(intent);
         });
 
         /*btnStart.setOnClickListener(new View.OnClickListener() {

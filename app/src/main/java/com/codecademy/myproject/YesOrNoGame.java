@@ -50,47 +50,41 @@ public class YesOrNoGame extends AppCompatActivity {
     }
     private void listeners()
     {
-        yes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (yes.getText().toString().equalsIgnoreCase(items.get(turn-1).getAnswer()))
-                {
-                    if (turn < round) {
-                        turn++;
-                        newQuestion(turn);
-                    }
-                    else{
-                        showDialog(YesOrNoGame.this);
-                    }
-                }
-                else{
-
-                    Toast.makeText(YesOrNoGame.this, "wrong", Toast.LENGTH_SHORT).show();
+        yes.setOnClickListener(v -> {
+            if (yes.getText().toString().equalsIgnoreCase(items.get(turn-1).getAnswer()))
+            {
+                if (turn < round) {
                     turn++;
                     newQuestion(turn);
+                }
+                else{
+                    showDialog(YesOrNoGame.this);
                 }
             }
-        });
-        no.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (yes.getText().toString().equalsIgnoreCase(items.get(turn-1).getAnswer()))
-                {
-                    if (turn < round) {
-                        turn++;
-                        newQuestion(turn);
-                    }
-                    else{
-                        showDialog(YesOrNoGame.this);
-                    }
-                }
-                else{
+            else{
 
-                    Toast.makeText(YesOrNoGame.this, "wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(YesOrNoGame.this, "wrong", Toast.LENGTH_SHORT).show();
+                turn++;
+                newQuestion(turn);
+            }
+        });
+        no.setOnClickListener(v -> {
+            if (yes.getText().toString().equalsIgnoreCase(items.get(turn-1).getAnswer()))
+            {
+                if (turn < round) {
                     turn++;
                     newQuestion(turn);
-
                 }
+                else{
+                    showDialog(YesOrNoGame.this);
+                }
+            }
+            else{
+
+                Toast.makeText(YesOrNoGame.this, "wrong", Toast.LENGTH_SHORT).show();
+                turn++;
+                newQuestion(turn);
+
             }
         });
     }
@@ -148,13 +142,11 @@ public class YesOrNoGame extends AppCompatActivity {
         builder.setTitle("игра окончена")
                 .setMessage("отличный результат")
                 .setIcon(R.mipmap.ic_launcher)
-                .setPositiveButton("ОК", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // Закрываем окно
-                        dialog.dismiss();
-                        finish();
+                .setPositiveButton("ОК", (dialog, id) -> {
+                    // Закрываем окно
+                    dialog.dismiss();
+                    finish();
 
-                    }
                 });
         builder.show();
     }

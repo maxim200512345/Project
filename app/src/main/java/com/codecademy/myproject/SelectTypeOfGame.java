@@ -48,12 +48,7 @@ public class SelectTypeOfGame extends AppCompatActivity {
         });*/
     }
     private void listeners(){
-        classicButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                makeDialog();
-            }
-        });
+        classicButton.setOnClickListener(v -> makeDialog());
     }
     private void windowSettings(){
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -72,21 +67,13 @@ public class SelectTypeOfGame extends AppCompatActivity {
         mDialogBuilder
                 .setCancelable(false)
                 .setPositiveButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(getBaseContext(), classic_game.class);
-                                intent.putExtra("round", userTime.getText().toString());
-                                startActivity(intent);
-                            }
+                        (dialog, which) -> {
+                            Intent intent = new Intent(getBaseContext(), classic_game.class);
+                            intent.putExtra("round", userTime.getText().toString());
+                            startActivity(intent);
                         })
                 .setNegativeButton("отмена",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        });
+                        (dialog, which) -> dialog.cancel());
         AlertDialog alertDialog = mDialogBuilder.create();
         alertDialog.show();
     }
